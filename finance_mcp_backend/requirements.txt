@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+pydantic>=2
+python-dotenv
+google-genai
+# Keep the MCP package/version already installed in your working project.
+# This backend uses your existing MCPServer / Client API.
