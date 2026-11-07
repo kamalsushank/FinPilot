@@ -1,6 +1,20 @@
+
+# Node
 node_modules/
 dist/
-.env
+.vite/
+
+# Python
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
