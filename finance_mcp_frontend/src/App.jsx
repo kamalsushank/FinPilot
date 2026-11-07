@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Bot, Wallet, Send, RefreshCw, ChevronDown, ChevronUp, ArrowDownLeft, ArrowUpRight, CalendarDays, TrendingUp, CircleDollarSign } from "lucide-react";
 import "./styles.css";
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
+const API_BASE = (import.meta.env.API_BASE_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 const USER_ID = "demo";
 const money = (value) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 }).format(Number(value || 0));
 const dateLabel = (value) => value ? new Date(`${String(value).slice(0, 10)}T00:00:00`).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—";
@@ -66,7 +66,7 @@ function App() {
       setMessages((old) => [...old, { role: "assistant", content: answer, sources: Array.isArray(result?.sources) ? result.sources : [], recommendations: Array.isArray(result?.recommendations) ? result.recommendations : [] }]);
       await loadData();
     } catch (error) {
-      setMessages((old) => [...old, { role: "assistant", content: `I couldn't reach the backend: ${error.message}. Check that FastAPI is running and VITE_API_BASE_URL points to it.` }]);
+      setMessages((old) => [...old, { role: "assistant", content: `I couldn't reach the backend: ${error.message}. Check that FastAPI is running and API_BASE_URL points to it.` }]);
     } finally { setBusy(false); }
   }
 
